@@ -16,11 +16,11 @@
         move_uploaded_file($_FILES['exampleFormControlFile1']['tmp_name'], $diretorio.$novo_nome);
         
         
-    $sql1 = $db->prepare("SELECT * FROM medicos WHERE email = '".$_POST['exampleInputEmail1']."' OR bilhete='".$_POST['validationDefault03']."'");
+    $sql1 = $db->prepare("SELECT * FROM medico WHERE email = '".$_POST['exampleInputEmail1']."' OR bilhete='".$_POST['validationDefault03']."'");
     $sql1->execute();
     $contar = $sql1->fetch();
     if($contar == 0 ){
-  $inserir=$db->prepare('INSERT INTO medicos (nome,categoria,bilhete,pais,senha,email,arquivo) VALUES (:nomeCompleto,:inputState,:validationDefault03,:inputState1,:senha,:exampleInputEmail1,:novo_nome)');
+  $inserir=$db->prepare('INSERT INTO medico (nome,categoria,bilhete,pais,senha,email,arquivo) VALUES (:nomeCompleto,:inputState,:validationDefault03,:inputState1,:senha,:exampleInputEmail1,:novo_nome)');
 
   $inserir->bindParam(":nomeCompleto",$nomeCompleto, PDO::PARAM_STR);
   $inserir->bindParam(":exampleInputEmail1",$email, PDO::PARAM_STR);

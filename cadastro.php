@@ -48,7 +48,7 @@
     <div class="form-group">
       <label for="exampleInputEmail1">Email</label>
       <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exemplo1@email.com" required>
-      <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email com mais ninguém.</small>
+      <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email com ninguém.</small>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Senha</label>
@@ -94,10 +94,32 @@
   </div>
    </form>
     </section>
+    <script type="text/javascript">
+        $(document).ready(function() {
+  // Check if element is scrolled into view
+  function isScrolledIntoView(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+  // If element is scrolled into view, fade it in
+  $(window).scroll(function() {
+    $('.scroll-animations .animated').each(function() {
+      if (isScrolledIntoView(this) === true) {
+        $(this).addClass('fadeInLeft');
+      }
+    });
+  });
+});
+</script>
     <footer id="conta">
   <div class="text-center" id="footer">
-    <a class="up-arrow" href="#estilo" data-toggle="tooltip" title="TO TOP">
-      <img src="imagens\icons8-divisa-circulada-acima-64.png">
+    <a class="up-arrow" href="#intro" data-toggle="tooltip" title="TO TOP">
+      <img src="imgs\unnamed.png">
     </a><br><br>
     <p>© 2020. Criado por <a href="https://www.facebook.com/starweb.tec/" data-toggle="tooltip" title="Visite fanpage StarWeb">StarWeb</a></p> 
   </div>
