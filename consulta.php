@@ -17,46 +17,35 @@
           <link rel="stylesheet" type="text/css" href="indexcss.css">
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
             <script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js"></script>
+            <script src="https://static.opentok.com/v2/js/opentok.js"></script>
 
 <body>
-	<a href="perguntar.html"><button class="btn btn-primary btn-lg animated bounceInDown" href="perguntar.html" role="button"  id="bu">Cadastrar-se &raquo;</button></a>
-<script type="text/javascript">
-    var peer = novo Peer (); 
 
-     var conn = peer.connect ('identificação de outros pares');
- // será aberto quando você se conectar com sucesso ao PeerServer
- conn.on ('aberto', function () {
-   // aqui você tem conn.id
-   conn.send ('oi!');
- });
- peer.on ('conexão', função (conn) {
-   conn.on ('dados', função (dados) {
-     // Imprime 'oi!'
-     console.log (dados);
-   });
- });
+      <iframe
+        src="https://tokbox.com/embed/embed/ot-embed.js?embedId=dba7eb97-4d45-43cb-b4d9-86e26d932e97&room=DEFAULT_ROOM&iframe=true"
+        width="800px"
+        height="640px"
+        scrolling="auto"
+        allow="microphone; camera"
+      ></iframe>
+      <script type="text/javascript">
+        var apiKey = '45828062';
+var sessionId = '1_MX40NTgyODA2Mn5-MTU4NzgxMzQwOTE1OH5sZGcxY1U2Szd0U1o3UXpVWUJPYjFINVB-UH4';
+var token = 'T1==cGFydG5lcl9pZD00NTgyODA2MiZzaWc9NTMyZTNiMTNmNDcyZDhiM2UzNTJhNzViN2JiMGQ2MDRjZGJmYmM1ZjpzZXNzaW9uX2lkPTFfTVg0ME5UZ3lPREEyTW41LU1UVTROemd4TXpRd09URTFPSDVzWkdjeFkxVTJTemQwVTFvM1VYcFZXVUpQWWpGSU5WQi1VSDQmY3JlYXRlX3RpbWU9MTU4NzgxMzQxNiZub25jZT0wLjAyODkxOTQ5MTIwNDkyMDg3NyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTg3ODk5ODE2';
 
- var getUserMedia = navigator.getUserMedia ||  navigator.webkitGetUserMedia ||  navigator.mozGetUserMedia;
- getUserMedia ({video: true, audio: true}, função (stream) {
-   var chamada = peer.call ('id de outro par', fluxo);
-   call.on ('stream', função (remoteStream) {
-     // Mostra o fluxo em algum elemento de vídeo / tela.
-   });
- }, função (err) {
-   console.log ('Falha ao obter fluxo local', err);
- });
- 
- var getUserMedia = navigator.getUserMedia ||  navigator.webkitGetUserMedia ||  navigator.mozGetUserMedia;
- peer.on ('chamada', função (chamada) {
-   getUserMedia ({video: true, audio: true}, função (stream) {
-     call.answer (stream);  // Atenda a chamada com um fluxo A / V.
-     call.on ('stream', função (remoteStream) {
-       // Mostra o fluxo em algum elemento de vídeo / tela.
-     });
-   }, função (err) {
-     console.log ('Falha ao obter fluxo local', err);
-   });
- });
-</script>
+var session = OT.initSession(apiKey, sessionId);
+
+// create publisher
+var publisher = OT.initPublisher();
+session.connect(token, function(err) {
+   session.publish(publisher);
+   
+});
+
+session.on('streamCreated', function(event) {
+   session.subscribe(event.stream);
+});
+      </script>
+    <div id="otEmbedContainer" style="width:800px; height:640px"></div> <script src="https://tokbox.com/embed/embed/ot-embed.js?embedId=dba7eb97-4d45-43cb-b4d9-86e26d932e97&room=DEFAULT_ROOM"></script>
 </body>
 </html>

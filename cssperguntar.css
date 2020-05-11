@@ -1,0 +1,37 @@
+body{
+	margin: 0px;
+	align-items: center;
+	display: block;
+    background-image: url(imgs/map-cta-small.png);
+    background-repeat: no-repeat;
+    background-size: 500px 500px;;
+}
+footer {
+    background-color: #303030;
+    color: #f5f5f5;
+    padding-bottom:32px;
+    border: 1px; 
+    margin-top: 498px;
+}
+
+footer a {
+    color: #f5f5f5;
+}
+
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}
+#atalhos a{
+	padding-left: 10px;
+}
+#escolha{
+    align-items: center;
+}
+#intro{
+    margin-top: 400px;
+}
+.form-control {
+        min-width : 100% !important;
+
+    }

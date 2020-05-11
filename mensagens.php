@@ -9,7 +9,7 @@
    $hora = "";
 
       
-    $sql6 = $db->prepare("SELECT * FROM mensagens where recebido='".$email_cookie."'");
+    $sql6 = $db->prepare("SELECT * FROM mensagem where recebido='".$email_cookie."'");
    $sql6->execute();  
    
 
@@ -50,12 +50,12 @@
           </div>
 
           <div class="inbox_chat">
-             <?php while ($row = $sql6->fetch(PDO::FETCH_ASSOC)) { $nome = $row['nomeU'];
+             <?php while ($row = $sql6->fetch(PDO::FETCH_ASSOC)) { $nome = $row['recebido'];
 
-           $mensagem = $row['mensagem'];
+           $mensagem = $row['menssage'];
 
            $data = $row['data'];
-           $hora = $row['hora'];?>
+           //$hora = $row['hora'];?>
             <div class="chat_list active_chat">
               <div class="chat_people">
                 <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>

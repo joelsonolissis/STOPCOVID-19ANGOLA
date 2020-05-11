@@ -11,11 +11,11 @@ if (!empty($_POST) AND (empty($_POST["email"]) OR empty($_POST["password"]))) {
   }
 
 if (isset($_POST['email'])) {
-       $sql=$db->prepare("SELECT * FROM medicos WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'"); 
+       $sql=$db->prepare("SELECT * FROM medico WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'"); 
           $sql->execute();  
       $verifica = $sql->fetch();
       if ($verifica>=1) {
-         $sql3 = "SELECT * FROM medicos WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'";
+         $sql3 = "SELECT * FROM medico WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'";
         $verifica = $db->query($sql3);
           foreach($verifica as $row){
           
@@ -28,11 +28,11 @@ if (isset($_POST['email'])) {
         }
         header("Location:pageMedico.php");
       }else{
-         $sql1=$db->prepare("SELECT * FROM utentes WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'"); 
+         $sql1=$db->prepare("SELECT * FROM usuarios WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'"); 
           $sql1->execute();  
       $verifica1 = $sql1->fetch();
       if ($verifica1>=1) {
-          $sql2 = "SELECT * FROM utentes WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'";
+          $sql2 = "SELECT * FROM usuarios WHERE email = '".$_POST['email']."' AND senha = '".$_POST['password']."'";
         $verifica1 = $db->query($sql2);
           foreach($verifica1 as $row){
           

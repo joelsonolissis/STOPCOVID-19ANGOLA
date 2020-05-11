@@ -8,11 +8,11 @@ require_once("conecta.php");
     $Telefone =  $_POST['validationDefault03'];
     $email = $_POST['exampleInputEmail1'];
 
-    $sql1 = $db->prepare("SELECT * FROM utentes WHERE email = '".$_POST['exampleInputEmail1']."' OR bilhete='".$_POST['validationDefault03']."'");
+    $sql1 = $db->prepare("SELECT * FROM usuarios WHERE email = '".$_POST['exampleInputEmail1']."' OR telefone='".$_POST['validationDefault03']."'");
     $sql1->execute();
     $contar = $sql1->fetch();
     if($contar == 0 ){
-  $inserir=$db->prepare('INSERT INTO utentes (nome,telefone,senha,email) VALUES (:nomeCompleto,:validationDefault03,:senha,:exampleInputEmail1)');
+  $inserir=$db->prepare('INSERT INTO usuarios (nome,telefone,senha,email) VALUES (:nomeCompleto,:validationDefault03,:senha,:exampleInputEmail1)');
 
   $inserir->bindParam(":nomeCompleto",$nomeCompleto, PDO::PARAM_STR);
   $inserir->bindParam(":exampleInputEmail1",$email, PDO::PARAM_STR);
@@ -24,7 +24,7 @@ require_once("conecta.php");
 
 
   }else{
-  echo "<script language='javascript' type='text/javascript'> alert('Este número de telefone é inválido.');</script>";
+  echo "<script language='javascript' type='text/javascript'> alert('Este email ou telefone está sendo utilizado por alguém. Verifique os seus dados.');</script>";
     echo "<script language='javascript' type='text/javascript'>window.location.href='cadastroUtente.php';</script>";
   }
 
